@@ -17,19 +17,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        if (!User::where('email', 'test@example.com')->exists()) {
-            User::factory()->create([
-                'name' => 'Test User',
-                'email' => 'test@example.com',
-            ]);
-        }
-
         if (!User::where('email', 'admin@example.com')->exists()) {
             User::factory()->create([
                 'name' => 'Admin User',
                 'email' => 'admin@example.com',
                 'role' => 'admin',
-                'password' => bcrypt('password'),
+                'password' => bcrypt('123456'),
+            ]);
+        }
+
+        if (!User::where('email', 'user@example.com')->exists()) {
+            User::factory()->create([
+                'name' => 'Regular User',
+                'email' => 'user@example.com',
+                'role' => 'user',
+                'password' => bcrypt('123456'),
             ]);
         }
     }
